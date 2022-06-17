@@ -1,50 +1,29 @@
-import React, { useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from 'react-router-dom';
+
+import Header from './components/common/Header';
+import Footer from './components/common/Footer';
+import Home from './components/home/Home';
+import Gallery from './components/gallery/Gallery';
+import Detail from './components/gallery/Detail';
+import Publish from './components/publish/Publish';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is:
-            {' '}
-            {count}
-          </button>
-        </p>
-        <p>
-          Edit
-          {' '}
-          <code>App.tsx</code>
-          {' '}
-          and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/gallery/:postId" element={<Detail />} />
+        <Route path="/publish" element={<Publish />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
