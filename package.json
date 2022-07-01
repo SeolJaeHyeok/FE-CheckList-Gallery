@@ -3,6 +3,7 @@
   "homepage": "https://fe-checklist-gallery.github.io/FE-CheckList-Gallery/",
   "private": true,
   "version": "0.0.0",
+  "postbuild": "cp dist/index.html dist/404.html",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
