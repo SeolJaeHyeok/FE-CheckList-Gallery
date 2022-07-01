@@ -94,7 +94,7 @@ const SliderItemTag = styled(Link)`
 
 function SliderItem({ post }: any) {
   const handleNavigate = () => {
-    location.href = `/gallery/${post._id}`;
+    location.href = `/FE-CheckList-Gallery/gallery/${post._id}`;
   };
 
   // Thumbnail 허용 확장자 필터링
