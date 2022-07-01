@@ -48,6 +48,13 @@ function Tags({ tags }: any) {
 
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
+
+    const id = e.target.dataset.id.split('tags-')[1];
+    if (id === 'all') {
+      searchParams.delete('tag');
+    } else {
+      searchParams.set('tag', id);
+    }
     setSearchParams(searchParams);
   };
 

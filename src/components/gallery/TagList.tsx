@@ -55,6 +55,14 @@ function TagList({ tags }: any) {
 
   const handleClick = (e: any) => {
     e.preventDefault();
+
+    const target = e.target.closest('li');
+    const id = target.dataset.id.split('taglist-')[1];
+    if (id === 'all') {
+      searchParams.delete('tag');
+    } else if (id) {
+      searchParams.set('tag', id);
+    }
     setSearchParams(searchParams);
   };
 
